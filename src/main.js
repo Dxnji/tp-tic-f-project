@@ -1,15 +1,60 @@
 import './style.css'
 import { setupCounter } from './counter.js'
 import SwotMatrix from './swot.js';
+import BCG from './bcg.js';
 
-document.querySelector('#app').innerHTML = `
-    <div id="main" class="main">
-      <div id="sidebar" class="sidebar">
-        <button>SWOT</button>
-        <button>BCG</button>
-      </div>
-      <div id="content" class="content">
-        <div id="swot" class="swot">
+const BGCHtml = `<div id="BCG">
+          <h1>BCG Matrix Input Form</h1>
+          <div>
+              <h2>Add Project</h2>
+              <form id="projectForm">
+                  <label for="projectName">Project Name:</label>
+                  <input type="text" id="projectName" name="projectName"><br>
+      
+                  <label for="marketShare">Market Share (%):</label>
+                  <input type="number" id="marketShare" name="marketShare" min="0" max="100"><br>
+      
+                  <label for="marketGrowth">Market Growth (%):</label>
+                  <input type="number" id="marketGrowth" name="marketGrowth" min="-100" max="100"><br>
+      
+                  <button type="submit">Add Project</button>
+              </form>
+                <div>
+                  <label for="MGconstraints">Market Share Growth (%):</label>
+                  <input id="MGC" name="MGconstraints" type="number">
+                  <label for="MSconstraints">Market Share constraints (%):</label>
+                  <input id="MSC"name="MSconstraints" type="number">
+                </div>
+              </div>
+      
+          <div>
+              <h2>Projects List</h2>
+              <ul id="projectsList">
+                  <!-- Projects will be listed here -->
+              </ul>
+          </div>
+      
+          <div>
+              <h2>BCG Matrix</h2>
+              <table id="BCGmatrix" border="1">
+                  <tr>
+                      <th></th>
+                      <th>High Market Growth</th>
+                      <th>Low Market Growth</th>
+                  </tr>
+                  <tr>
+                      <th>High Market Share</th>
+                      <td>Stars</td>
+                      <td>Cash Cows</td>
+                  </tr>
+                  <tr>
+                      <th>Low Market Share</th>
+                      <td>Question Marks</td>
+                      <td>Dogs</td>
+                  </tr>
+              </table>
+          </div>`
+const swotHtml = `<div id="swot" class="swot">  
           <div class="heading">
             <h3>SWOT Matrix</h3>
           </div>
@@ -27,7 +72,7 @@ document.querySelector('#app').innerHTML = `
                 <th>Opportunities</th>
                 <th>Threats</th>
               </tr>
-              <tr>
+              <tr>  
                 <td></td>
                 <td></td>
               </tr>
@@ -52,7 +97,15 @@ document.querySelector('#app').innerHTML = `
           <div class="export"> 
             <button id="export">export</button>
           </div>
-        </div>
+        </div>`
+
+document.querySelector('#app').innerHTML = `
+    <div id="main" class="main">
+      <div id="sidebar" class="sidebar">
+        <button id="swotbtn">SWOT</button> 
+      </div>
+      <div id="content" class="content">
+      ${swotHtml}
       </div>
     </div>
 `
@@ -67,13 +120,33 @@ function handleDelete(id) {
 }
 
 function main() {
+  const dispayContent = document.getElementById("content");
+  const swotcontent = document.getElementById("swot");
+  const BCGbtn = document.getElementById("BCGbtn");
+  const swotbtn = document.getElementById("swotbtn");
+
+  // swotbtn.addEventListener("click",(event) => {
+  //   console.log("hey there ");
+  //   dispayContent.innerHTML = swotHtml;
+  // });
+
+  // BCGbtn.addEventListener("click",(event) => {
+  //   console.log("hello");  
+  //   dispayContent.innerHTML = BGCHtml;
+  // });
+  
   const formElement = document.getElementById("swotform");
   const tableElement = document.getElementById("swottable");
   const itemsList  = document.getElementById("itemList");
   
+  const projectForm = document.getElementById("projectForm");
+  const projectList = document.getElementById("projectsList");
+  const BCGmatrix = document.getElementById("BCGmatrix");
+
   
-  const sowt = new SwotMatrix(formElement,tableElement, itemsList);
+  const bcg = new BCG(projectForm,projectList,BCGmatrix)
+  const swot = new SwotMatrix(formElement,tableElement, itemsList);
 }
 
-document.addEventListener("DOMContentLoaded",main());
+document.addEventListener("DOMContentLoaded",main);
 

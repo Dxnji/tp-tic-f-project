@@ -13,7 +13,6 @@ export default class SwotMatrix {
         this.exportbtn.addEventListener("click",this.handelExport);
         
         this.form.addEventListener('submit', this.handelForm.bind(this));
-        console.log("handled");
         
     }
 
