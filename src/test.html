@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="main" class="main">
+      <div id="sidebar" class="sidebar">
+        <button>SWOT</button>
+        <button>BCG</button>
+      </div>
+      <div id="content" class="content">
+        <div id="swot" class="swot">
+          <div class="heading">
+            <h3>SWOT Matrix</h3>
+          </div>
+          <div id="matrix" class="swotmatrix">
+            <table id="swottable">
+              <tr>
+                <th>Strengths</th>
+                <th>Weaknesses</th>
+              </tr>
+              <tr>
+                <td>gose here</td>
+                <td>gose here</td>
+              </tr>
+              <tr>
+                <th>Opportunities</th>
+                <th>Threats</th>
+              </tr>
+              <tr>
+                <td>goes here </td>
+                <td>goes here</td>
+              </tr>
+            </table>
+          </div>
+          <form action="" id="swotform">
+            <textarea name="" id="" ></textarea>
+            <div class="forminput">
+                <label for="field">Fields:</label>
+                <select name="field" id="field" required>
+                  <option value="" selected disabled>Pick Field</option>
+                  <option value="S">Strength</option>
+                  <option value="W">Weaknesse</option>
+                  <option value="O">Opportunitie</option>
+                  <option value="T">Threat</option>
+                </select>
+                <button type="submit">insert</button>
+            </div>
+            <div class="itemList">
+                <li>
+                    <div class="item">
+                        <p>text </p>
+                        <button type="button">edit</button>
+                        <button type="button">delete</button></div>
+                </li>
+            </div>
+          </form>
+          <button>export</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
