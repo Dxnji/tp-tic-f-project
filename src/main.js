@@ -3,6 +3,15 @@ import { setupCounter } from './counter.js'
 import SwotMatrix from './swot.js';
 import BCG from './bcg.js';
 
+
+const body = document.querySelector('body');
+const themeButton = document.createElement('button'); 
+themeButton.textContent = 'Toggle Dark Theme';
+themeButton.addEventListener('click', () => {
+  body.classList.toggle('dark-theme');
+});
+
+
 const BGCHtml = `<div id="BCG">
           <h1>BCG Matrix Input Form</h1>
           <div>
@@ -150,3 +159,4 @@ function main() {
 
 document.addEventListener("DOMContentLoaded",main);
 
+document.querySelector('#sidebar').appendChild(themeButton);
