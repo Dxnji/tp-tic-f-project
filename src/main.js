@@ -5,7 +5,7 @@ import BCG from './bcg.js';
 
 
 const body = document.querySelector('body');
-const themeButton = document.createElement('button'); 
+const themeButton = document.createElement('button');
 themeButton.textContent = 'Toggle Dark Theme';
 themeButton.addEventListener('click', () => {
   body.classList.toggle('dark-theme');
@@ -120,9 +120,9 @@ document.querySelector('#app').innerHTML = `
 `
 
 function handleDelete(id) {
-  const divElement = document.getElementById("div"+id);
+  const divElement = document.getElementById("div" + id);
   const listElement = document.getElementById(id);
-    
+
   divElement.remove();
   listElement.remove();
 
@@ -143,20 +143,20 @@ function main() {
   //   console.log("hello");  
   //   dispayContent.innerHTML = BGCHtml;
   // });
-  
+
   const formElement = document.getElementById("swotform");
   const tableElement = document.getElementById("swottable");
-  const itemsList  = document.getElementById("itemList");
-  
-  const projectForm = document.getElementById("projectForm");
-  const projectList = document.getElementById("projectsList");
-  const BCGmatrix = document.getElementById("BCGmatrix");
+  const itemsList = document.getElementById("itemList");
 
-  
-  const bcg = new BCG(projectForm,projectList,BCGmatrix)
-  const swot = new SwotMatrix(formElement,tableElement, itemsList);
+  //const projectForm = document.getElementById("projectForm");
+  //const projectList = document.getElementById("projectsList");
+  //const BCGmatrix = document.getElementById("BCGmatrix");
+
+
+  //const bcg = new BCG(projectForm,projectList,BCGmatrix)
+  const swot = new SwotMatrix(formElement, tableElement, itemsList);
 }
 
-document.addEventListener("DOMContentLoaded",main);
+document.addEventListener("DOMContentLoaded", main);
 
 document.querySelector('#sidebar').appendChild(themeButton);
