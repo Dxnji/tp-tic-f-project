@@ -139,12 +139,12 @@ function main() {
   const tableElement = document.getElementById("swottable");
   const itemsList  = document.getElementById("itemList");
   
-  const projectForm = document.getElementById("projectForm");
-  const projectList = document.getElementById("projectsList");
-  const BCGmatrix = document.getElementById("BCGmatrix");
+ // const projectForm = document.getElementById("projectForm");
+  //const projectList = document.getElementById("projectsList");
+  //const BCGmatrix = document.getElementById("BCGmatrix");
 
   
-  const bcg = new BCG(projectForm,projectList,BCGmatrix)
+  //const bcg = new BCG(projectForm,projectList,BCGmatrix)
   const swot = new SwotMatrix(formElement,tableElement, itemsList);
 }
 
